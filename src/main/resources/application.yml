@@ -16,9 +16,7 @@ spring:
 
   data:
     redis:
-      host: ${SPRING_REDIS_HOST}
-      port: ${SPRING_REDIS_PORT}
-      password: ${SPRING_REDIS_PASSWORD}
+      url: ${SPRING_REDIS_URL}
       timeout: 2000ms
       ssl:
         enabled: true
