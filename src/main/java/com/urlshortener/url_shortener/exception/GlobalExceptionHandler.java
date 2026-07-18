@@ -8,12 +8,13 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
+import lombok.extern.slf4j.Slf4j;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(UrlNotFoundException.class)
@@ -78,6 +79,7 @@ public class GlobalExceptionHandler {
             Exception ex,HttpServletRequest request
     )
     {
+        log.error(String.valueOf(ex));
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse(500,
                 "Internal Server Error",
                 "Something Went Wrong.Please try again",
