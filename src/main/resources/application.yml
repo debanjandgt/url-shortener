@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: url-shortener
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST}
+      port: ${SPRING_REDIS_PORT}
+      password: ${SPRING_REDIS_PASSWORD}
+      timeout: 2000ms
+      ssl:
+        enabled: true
+
+app:
+  base-url: ${APP_BASE_URL:http://localhost:8080/}
+
+server:
+  port: ${PORT:8080}
