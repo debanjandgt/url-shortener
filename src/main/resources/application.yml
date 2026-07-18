@@ -19,7 +19,7 @@ spring:
       url: ${SPRING_REDIS_URL}
       timeout: 2000ms
       ssl:
-        enabled: false
+        enabled: true
 
 app:
   base-url: ${APP_BASE_URL:http://localhost:8080/}
